@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>Crypto Keeper</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    var percentValue = document.querySelector('.percentage').value;
+
+    
+        if (percentValue > 0.00) {
+            document.querySelector('.percentage').style.color = 'green';
+        } else {
+            document.querySelector('.percentage').style.color = 'red';
+        } 
+    
+  </script>
 </head>
 <body>
 

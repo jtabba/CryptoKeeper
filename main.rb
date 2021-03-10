@@ -21,9 +21,14 @@ end
 # end
 
 get '/' do
-  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")
+  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD")
   
   erb :index, locals: { cryptos: cryptos['Data'] } 
+end
+
+get '/crypto_details' do
+
+  erb :crypto_details
 end
 
 # get '/price_test' do
