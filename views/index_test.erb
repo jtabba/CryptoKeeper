@@ -1,0 +1,17 @@
+<h1>Global USD Price</h1>
+
+<%# <% crypto.each_with_index do |token, index| %> %>
+
+    <img src="https://www.cryptocompare.com/<%= image %>" alt="">
+    <p> <%= from_symbol %> </p>
+    <p>Current price (USD): <%= price %> </p>
+    <p>Change in the last hour: <%= hour %> </p>
+    <p>Change in the last day: <%= day %> </p>
+    <p>24 hour high: <%= high %> </p>
+    <p>24 Hour low: <%= low %> </p>
+    <% (difference = ((price/high) * 100).round - 100)  %>
+    <p>24 Difference: <%= difference %>% </p>
+    <p>24 hour volume: <%= volume %> </p>
+    <p>Market cap: <%= marketcap %> </p>
+
+<%# <% end %> %>
