@@ -12,48 +12,39 @@ if development?
 end
 
 
+# get '/' do
+#   cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD")
+
+#   erb :index, locals: { 
+#     cryptos: cryptos 
+#   }
+# end
+
 get '/' do
-  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD")
-
-  erb :index, locals: { 
-    cryptos: cryptos 
-  }
-end
-
-get '/price_test' do
-  crypto = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")
+  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")
   
-  erb :index_test, locals: {
-    from_symbol: crypto['Data'][0]['DISPLAY']['USD']['FROMSYMBOL'],
-    to_symbol: crypto['Data'][0]['DISPLAY']['USD']['TOSYMBOL'],
-    price: crypto['Data'][0]['RAW']['USD']['PRICE'],
-    hour: crypto['Data'][0]['DISPLAY']['USD']['CHANGEHOUR'],
-    day: crypto['Data'][0]['DISPLAY']['USD']['CHANGEDAY'],
-    low: crypto['Data'][0]['RAW']['USD']['LOW24HOUR'],
-    high: crypto['Data'][0]['RAW']['USD']['HIGH24HOUR'],
-    volume: crypto['Data'][0]['DISPLAY']['USD']['TOTALVOLUME24HTO'],
-    marketcap: crypto['Data'][0]['DISPLAY']['USD']['MKTCAP'],
-    image: crypto['Data'][0]['DISPLAY']['USD']['IMAGEURL']
-  } 
+  erb :index, locals: { cryptos: cryptos['Data'] } 
 end
-
 
 # get '/price_test' do
-#   crypto = HTTParty.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD")
-
+#   crypto = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD")
+  
 #   erb :index_test, locals: {
-#     from_symbol: crypto['DISPLAY']['BTC']['USD']['FROMSYMBOL'],
-#     to_symbol: crypto['DISPLAY']['BTC']['USD']['TOSYMBOL'],
-#     price: crypto['RAW']['BTC']['USD']['PRICE'],
-#     hour: crypto['DISPLAY']['BTC']['USD']['CHANGEHOUR'],
-#     day: crypto['DISPLAY']['BTC']['USD']['CHANGEDAY'],
-#     low: crypto['RAW']['BTC']['USD']['LOW24HOUR'],
-#     high: crypto['RAW']['BTC']['USD']['HIGH24HOUR'],
-#     volume: crypto['DISPLAY']['BTC']['USD']['TOTALVOLUME24HTO'],
-#     marketcap: crypto['DISPLAY']['BTC']['USD']['MKTCAP'],
-#     image: crypto['DISPLAY']['BTC']['USD']['IMAGEURL']
+#     from_symbol: crypto['Data'][0]['DISPLAY']['USD']['FROMSYMBOL'],
+#     to_symbol: crypto['Data'][0]['DISPLAY']['USD']['TOSYMBOL'],
+#     price: crypto['Data'][0]['RAW']['USD']['PRICE'],
+#     hour: crypto['Data'][0]['DISPLAY']['USD']['CHANGEHOUR'],
+#     day: crypto['Data'][0]['DISPLAY']['USD']['CHANGEDAY'],
+#     low: crypto['Data'][0]['RAW']['USD']['LOW24HOUR'],
+#     high: crypto['Data'][0]['RAW']['USD']['HIGH24HOUR'],
+#     volume: crypto['Data'][0]['DISPLAY']['USD']['TOTALVOLUME24HTO'],
+#     marketcap: crypto['Data'][0]['DISPLAY']['USD']['MKTCAP'],
+#     image: crypto['Data'][0]['DISPLAY']['USD']['IMAGEURL']
 #   } 
 # end
+
+
+
 
 
 # get 'crypto' do

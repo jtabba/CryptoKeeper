@@ -1,9 +1,31 @@
 <h1>Global Prices</h1>
 
-<% cryptos.each do |crypto| %>
+<span class="variables">
+    <p> </p>
+    <p>Name</p>
+    <p>Current price (USD)</p>
+    <p>Change (hour)</p>
+    <p>Change (day)</p>
+    <p>24 hour high</p>
+    <p>24 hour low</p>
+    <p>24 hour change</p>
+    <p>24 hour Volume</p>
+    <p>Market cap</p>
+</span>
 
-<p>BTC to <%= crypto[0] %>: <%= crypto[1] %> </p>
+<% cryptos.each do |crypto|%>
+
+<span class="crypto">
+    <img src="https://www.cryptocompare.com/<%= crypto['DISPLAY']['USD']['IMAGEURL'] %>" alt="">
+    <p><%=crypto['CoinInfo']['FullName']%> (<%= crypto['CoinInfo']['Name'] %>)</p>
+    <p><%=crypto['DISPLAY']['USD']['PRICE']%></p>
+    <p><%=crypto['DISPLAY']['USD']['CHANGEHOUR']%></p>
+    <p><%=crypto['DISPLAY']['USD']['CHANGEDAY']%></p>
+    <p><%=crypto['DISPLAY']['USD']['HIGH24HOUR']%></p>
+    <p><%=crypto['DISPLAY']['USD']['LOW24HOUR']%></p>
+    <p><%=(((crypto['RAW']['USD']['PRICE']) / (crypto['RAW']['USD']['LOW24HOUR']) * 100) - 100).round(2)%> %</p>
+    <p><%=crypto['DISPLAY']['USD']['TOTALVOLUME24HTO']%></p>
+    <p><%=crypto['DISPLAY']['USD']['MKTCAP']%></p>
+</span>
 
 <% end %>
-
-

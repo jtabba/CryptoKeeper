@@ -1,5 +1,7 @@
 <h1>Global USD Price</h1>
 
+<% cryptos.each do |crypto|%>
+
     <img src="https://www.cryptocompare.com/<%= image %>" alt="">
     <p> <%= from_symbol %> </p>
     <p>Current price (USD): <%= price %> </p>
@@ -11,4 +13,33 @@
     <p>24 Difference: <%= difference %>% </p>
     <p>24 hour volume: <%= volume %> </p>
     <p>Market cap: <%= marketcap %> </p>
+
+<% end %>
+
+<% cryptos.each do |crypto|%>
+
+    <img src="https://www.cryptocompare.com/<%= crypto['DISPLAY']['USD']['IMAGEURL'] %>" alt="">
+    <p>Current price (USD): <%=crypto['DISPLAY']['USD']['PRICE']%> </p>
+    <p>24 hour high:</p>
+   
+
+<% end %>
+
+<h1>Global Prices</h1>
+
+<% cryptos.each do |crypto| %>
+
+<p>BTC to <%= crypto[0] %>: <%= crypto[1] %> </p>
+
+<% end %>
+
+
+<p><%=
+((((crypto['RAW']['USD']['PRICE']) / 
+    ((crypto['RAW']['USD']['LOW24HOUR']) + (crypto['RAW']['USD']['HIGH24HOUR'])) / 2) * 100) - 100).round(2)%> %</p>
+
+    <p><%=
+    ((((crypto['RAW']['USD']['PRICE']) / 
+    ((crypto['RAW']['USD']['LOW24HOUR']) + (crypto['RAW']['USD']['HIGH24HOUR'])) / 2) * 100) - 100).round(2)%> %</p>
+
 
