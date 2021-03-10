@@ -13,7 +13,7 @@ end
 
 
 get '/' do
-  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key={c39754cf2b06132d4f3631345fe4a3dda0e0e232cd5920d8c0bd0ad0bcf4274b}")
+  cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD")
 
   erb :index, locals: { 
     cryptos: cryptos 
@@ -39,7 +39,7 @@ end
 
 
 # get '/price_test' do
-#   crypto = HTTParty.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD&api_key={c39754cf2b06132d4f3631345fe4a3dda0e0e232cd5920d8c0bd0ad0bcf4274b}")
+#   crypto = HTTParty.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD")
 
 #   erb :index_test, locals: {
 #     from_symbol: crypto['DISPLAY']['BTC']['USD']['FROMSYMBOL'],
