@@ -5,19 +5,34 @@
   <title>Crypto Keeper</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    var percentValue = document.querySelector('.percentage').value;
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
 
-    
-        if (percentValue > 0.00) {
-            document.querySelector('.percentage').style.color = 'green';
-        } else {
-            document.querySelector('.percentage').style.color = 'red';
-        } 
-    
-  </script>
 </head>
 <body>
+
+<div class="control_bar">
+  <span class="navigate">
+    <a href="/">Home</a>
+    <a href="/announcements">Announcements</a>
+    <a href="/">Forum</a>
+  </span>
+  <span class="log_control">
+    <% if logged_in? %>
+      Logged in as <%= current_user()['user_name'] %>
+    
+      <form action="/session" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <button>Logout</button>
+      </form>
+    
+      <% else %>
+        <a href="">Sign up</a>
+        <a href="/login">Login</a>
+      <% end %>
+  </span>
+</div>
 
   <%= yield %>
 

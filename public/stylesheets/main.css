@@ -64,6 +64,7 @@ img {
 a {
     text-decoration: none;
     color: white;
+    
 }
 
 a:visited {
@@ -75,3 +76,38 @@ a:hover {
     /* font-weight: bold; */
     transition: font-weight 2ms linear;
 }
+
+/* span.log_control {
+    text-align: right;
+    display: grid;
+    color: goldenrod;
+} */
+
+div {
+    font-weight: bold;
+    display: grid;
+    padding: 10px;
+}
+
+.log-control {
+    color: grey;
+}
+
+.chart_container {
+    width: 1000px;
+    height: 600px;
+    margin: 0;
+    padding-left: 200px;
+}
+
+options {
+    responsive: true;
+    maintainAspectRatio: false;
+}
+
+/* #chart {
+
+    width:300px !important;
+    height:200px !important;
+  
+  } */

@@ -1,23 +1,31 @@
 
-let labels1 = ['Price', 'Time'];
-let data1 = ['100', '1'];
-let colors1 = ['green', 'red'];
+let LINEDATA = [];
+let data = [];
+let labels = [];
 
-let myChart1 = document.getElementById("myChart").getContext('2d');
+graph();
+setInterval("graph()", 30000);
 
-let chart1 = new Chart1(myChart1, {
-    type: 'line',
-    data: {
-        labels: labels1,
-        datasets: [ {
-            data: data1,
-            backgroundColor: colors1
-        }]
-    },
-    options: {
-        title: {
-            text: "Price",
-            display: "$1"
-        }
-    }
-});
+function graph() {
+    axios.get(`https://api.coindesk.com/v1/bpi/historical/close.json?start=${moment(new Date()).subtract(1, 'month').format('YYYY-MM-DD')}&end=${moment(new Date()).format('YYYY-MM-DD')}`)
+    .then((response) => {
+    LINEDATA = { ...response.data.bpi };
+    data = Object.keys(LINEDATA).map(key => LINEDATA[key]);
+    labels = Object.keys(LINEDATA);
+      console.log(data);
+      console.log(labels);
+    new Chart(document.getElementById("chart"), {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Bitcoin',
+            data: data,
+            borderColor: "#3e95cd",
+          }
+        ]
+      }
+    });
+  });
+}

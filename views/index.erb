@@ -1,3 +1,4 @@
+<br>
 <img class="logo" src="media/logo.png" alt="">
 
 <span class="variables">
@@ -5,10 +6,10 @@
     <p>Rank</p>
     <p>Name</p>
     <p>Current price (USD)</p>
-    <p>Change (hour)</p>
-    <p>Change (day)</p>
     <p>24 hour high</p>
     <p>24 hour low</p>
+    <p>Change (hour)</p>
+    <p>Change (day)</p>
     <p>24 hour change</p>
     <p>24 hour Volume</p>
     <p>Market cap</p>
@@ -24,12 +25,39 @@
         <p><%=crypto['CoinInfo']['FullName']%> (<%= crypto['CoinInfo']['Name'] %>)</p>
     </a>
     <p><%=crypto['DISPLAY']['USD']['PRICE']%></p>
-    <p><%=crypto['DISPLAY']['USD']['CHANGEHOUR']%></p>
-    <p><%=crypto['DISPLAY']['USD']['CHANGEDAY']%></p>
+
+
     <p><%=crypto['DISPLAY']['USD']['HIGH24HOUR']%></p>
     <p><%=crypto['DISPLAY']['USD']['LOW24HOUR']%></p>
-    
-    <p class="percentage"><%=(((crypto['RAW']['USD']['PRICE']) / (crypto['RAW']['USD']['OPEN24HOUR']) * 100) - 100).round(2)%> %</p>
+
+    <% hour_change = crypto['RAW']['USD']['CHANGEHOUR'].round(5) %>
+        <% if hour_change > 0.00 %>
+            <p class="hour_change" style="color: #14e715;"> $ <%= hour_change %> </p>
+        <% elsif hour_change < 0.00 %>
+            <p class="hour_change" style="color: red;"> $ <%= hour_change %> </p>
+        <% else %>
+            <p class="hour_change" style="color: white;"> $ <%= hour_change %> </p>
+        <% end %>
+
+    <% day_change = crypto['RAW']['USD']['CHANGEDAY'].round(5) %>
+        <% if day_change > 0.00 %>
+            <p class="day_change" style="color: #14e715;"> $ <%= day_change %> </p>
+        <% elsif day_change < 0.00 %>
+            <p class="day_change" style="color: red;"> $ <%= day_change %> </p>
+        <% else %>
+            <p class="day_change" style="color: white;"> $ <%= day_change %> </p>
+        <% end %>
+
+    <% daily_change = (((crypto['RAW']['USD']['PRICE']) / (crypto['RAW']['USD']['OPEN24HOUR']) * 100) - 100).round(2) %>
+        <% if daily_change > 0.01 %>
+            <p class="percentage" style="color: #14e715;"><%= daily_change %> %</p>
+        <% elsif %>
+            <p class="percentage" style="color: red;"><%= daily_change %> %</p>
+        <% else %>
+            <p class="percentage" style="color: white;"> <%= daily_change %> %</p>
+        <% end %>
+
+
     <p><%=crypto['DISPLAY']['USD']['TOTALVOLUME24HTO']%></p>
     <p><%=crypto['DISPLAY']['USD']['MKTCAP']%></p>
 

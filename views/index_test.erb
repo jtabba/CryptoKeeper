@@ -43,3 +43,13 @@
     ((crypto['RAW']['USD']['LOW24HOUR']) + (crypto['RAW']['USD']['HIGH24HOUR'])) / 2) * 100) - 100).round(2)%> %</p>
 
 
+<% hour_change = crypto['RAW']['USD']['CHANGEHOUR'].round(2) %>
+
+    <% if hour_change > 0.01 %>
+        <p class="hour_change" style="color: green;"> $ <%= hour_change %> </p>
+    <% elsif hour_change < 0.00 %>
+        <p class="hour_change" style="color: red;"> $ <%= hour_change %> </p>
+    <% else %>
+        <p class="hour_change" style="color: white;"> $ <%= hour_change %> </p>
+    <% end %>
+

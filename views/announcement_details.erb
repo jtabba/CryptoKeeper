@@ -1,0 +1,16 @@
+
+<h1><%= announcement['title'] %></h1>
+
+<img src="<%= announcement['image_url'] %>" alt="">
+
+<p><%= announcement['content'] %></p>
+
+<form action="/get_announcement/<%= announcement['id'] %>" method="post">
+    <input type="hidden" name="food_id" value="<%= announcement['id'] %>">
+    <input type="hidden" name="_method" value="delete">
+    <button>Remove</button>
+</form>
+
+
+<a href="/get_announcement/<%= announcement['id'] %>/edit">Edit</a>
+
