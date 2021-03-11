@@ -14,22 +14,22 @@
 
 <div class="control_bar">
   <span class="navigate">
-    <a href="/">Home</a>
-    <a href="/announcements">Announcements</a>
-    <a href="/">Forum</a>
+    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 16px;">Home</a>
+    <a href="/announcements" style="padding: 0px 10px 0px 10px; font-size: 16px;">Announcements</a>
+    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 16px;">Forum</a>
   </span>
-  <span class="log_control">
+  <span class="log_control" style="color: goldenrod; padding: 5px;">
     <% if logged_in? %>
       Logged in as <%= current_user()['user_name'] %>
     
       <form action="/session" method="post">
         <input type="hidden" name="_method" value="delete">
-        <button>Logout</button>
+        <button style="margin: 10px 5px 5px 5px;">Logout</button>
       </form>
     
       <% else %>
-        <a href="">Sign up</a>
-        <a href="/login">Login</a>
+        <a href="" style="padding: 0px 10px 0px 5px; font-size: 16px;">Sign up</a>
+        <a href="/login" style="padding: 0px 10px 0px 10px; font-size: 16px;">Login</a>
       <% end %>
   </span>
 </div>

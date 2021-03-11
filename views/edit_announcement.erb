@@ -1,0 +1,20 @@
+
+<h1>Edit Announcement</h1>
+
+<form action="/get_announcement/<%= announcement['id'] %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="announcement_id" value="<%= announcement['id'] %>">
+    <label for="" style="color: goldenrod;">Title</label>
+    <br>
+    <input type="text" name="title" style="text-align: center; margin: 10px;" value="<%= announcement['title'] %>">
+    <br>    
+    <label for="" style="color: goldenrod;">Image URL</label>
+    <br>
+    <input type="text" name="image_url" placeholder="Image URL" style="text-align: center; margin: 10px;" value=" <%= announcement['image_url'] %>">
+    <br>
+    <label for="" style="color: goldenrod;">Content</label>
+    <br>
+    <input type="text" name="content" placeholder="Content" style="text-align: center; margin: 10px; padding: 200px;" value=" <%= announcement['content'] %>">
+    <br>
+    <button>Update</button>
+</form>

@@ -93,6 +93,11 @@ div {
     color: grey;
 }
 
+div.control_bar {
+    padding: 0px;
+    margin: -10px 0px 0px 0px;
+}
+
 .chart_container {
     width: 1000px;
     height: 600px;
@@ -105,6 +110,13 @@ options {
     maintainAspectRatio: false;
 }
 
+
+.ann_image {
+    padding: 0px;
+    display: block;
+    margin: auto;
+    width: 340px;
+}
 /* #chart {
 
     width:300px !important;

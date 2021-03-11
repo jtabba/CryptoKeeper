@@ -49,11 +49,16 @@ end
 
 get '/crypto_details' do
 
+  crypto = 
+
   erb :crypto_details
 end
 
 get '/announcements' do
-   announcements = run_sql("SELECT * FROM announcements;")
+
+  redirect '/login' unless logged_in?
+
+  announcements = run_sql("SELECT * FROM announcements;")
 
   erb :announcements, locals: { announcements: announcements }
 end
@@ -67,7 +72,7 @@ end
 post '/get_announcement' do
   redirect '/login' unless logged_in?
 
-  sql = "INSERT INTO announcements (title, image_url, content, user_id) VALUES ($1, $2, $3);"
+  sql = "INSERT INTO announcements (title, image_url, content, user_id) VALUES ($1, $2, $3, $4);"
   run_sql(sql, [
     params[:title],
     params[:image_url],
@@ -83,6 +88,37 @@ get '/get_announcement/:id' do
   announcement = run_sql("SELECT * FROM announcements WHERE id = $1", [params[:id]])[0]
 
   erb :announcement_details, locals: { announcement: announcement }
+end
+
+
+delete '/get_announcement/:id' do
+  redirect '/login' unless logged_in?
+
+  sql = "DELETE FROM announcements WHERE id = $1;"
+  run_sql(sql, [
+    params[:id]
+  ])
+
+  redirect '/announcements'
+end
+
+
+get "/get_announcement/:id/edit" do
+  announcement = run_sql("SELECT * FROM announcements WHERE id = $1", [params[:id]])[0]
+
+  erb :edit_announcement, locals: { announcement: announcement }
+end
+
+patch '/get_announcement/:id' do
+  run_sql(
+    "UPDATE announcements SET title = $1, image_url = $2, content = $3 WHERE id = $4;", [
+    params[:title],
+    params[:image_url],
+    params[:content],
+    params[:id]
+  ])
+
+  redirect "/get_announcement/#{params[:id]}"
 end
 
 

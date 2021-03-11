@@ -1,16 +1,16 @@
 <h1>Crypto Keeper Announcements</h1>
 
-<a href="/create_announcement">Create an announcement</a>
+<a href="/create_announcement"">Create an announcement</a>
 
 <div class="posts">
 <% announcements.each do |announcement| %>
     <div class="post">
     <a href="/get_announcement/<%= announcement['id'] %>">
-        <p>
+        <h2 style="color: goldenrod;">
             <%= announcement['title'] %>
-        </p>
+        </h2>
     </a>
-    <img src=" <%= announcement['image_url'] %>" alt="">
+    <img class ="ann_image" src=" <%= announcement['image_url'] %>" alt="">
     </div>
 
 <% end %>
