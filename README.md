@@ -10,32 +10,32 @@ https://stormy-harbor-84296.herokuapp.com/
 ## Prices and Values
 Crypto Keeper uses a CryptoCompare API to display the prices and numerous values of cryptocurrencies. Changes in price over the course of an hour and a day are also tracked and highlighted in either green or red to indicate whether the movement was positive or negative. To supplement this, the change in % of a price over the course of a day is also displayed to provide an additional layer of information about the asset.
 
-![Home Interface](home.jpg)
+![Home Interface](public/documentation/home.jpg)
 
 ## Graphs
 To provide a visual representation of the price fluctuations of an asset over time, Crypto Keeper utilises and displays a line graph to plot the previous 3 month price movements of an asset. The graph is created using the Graph.js and Moment.js libraries, and is coded to render based upon the time and price of an asset at a certain time.
 
 Additional information regarding more specific attributes of a crypto are also displayed on the left-hand side of the graph, hence providing a deeper insight into the distinct details and features of the token.
 
-![Home Interface](graph.jpg)
+![Home Interface](public/documentation/graph.jpg)
 
 ## Crypto News
 
 Crypto Keeper boasts a section dedicated to sharing the latest crypto related news. To access this section of the website, viewers must sign up and login to their Crypto Keeper account.
 
-![Home Interface](news.jpg)
+![Home Interface](public/documentation/news.jpg)
 
 Signing up and logging in will then highlight and display the users username at the top of the page - everyone likes to feel a little special sometimes.
 
-![Home Interface](loggedin.jpg)
+![Home Interface](public/documentation/loggedin.jpg)
 
 Full CRUD functionality is incorporated for all posts, allowing the website admin to create, share, edit and delete anything that is posted on the page.
 
-![Home Interface](login.jpg)
+![Home Interface](public/documentation/login.jpg)
 
 Clicking on a news headline navigates the user to a new page where the article content is displayed for reading.
 
-![Home Interface](article.jpg)
+![Home Interface](public/documentation/article.jpg)
 
 ## Security
 
