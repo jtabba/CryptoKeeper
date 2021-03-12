@@ -14,11 +14,11 @@
 
 <div class="control_bar">
   <span class="navigate">
-    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 16px;">Home</a>
-    <a href="/announcements" style="padding: 0px 10px 0px 10px; font-size: 16px;">Announcements</a>
-    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 16px;">Forum</a>
+    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 20px; font-weight: 300;">Home</a>
+    <a href="/announcements" style="padding: 0px 10px 0px 10px; font-size: 20px; font-weight: 300;">Crypto News</a>
+    <a href="/" style="padding: 0px 10px 0px 10px; font-size: 20px; font-weight: 300;">Forum</a>
   </span>
-  <span class="log_control" style="color: goldenrod; padding: 5px;">
+  <span class="log_control" style="color: goldenrod; padding: 5px; font-size:16px;">
     <% if logged_in? %>
       Logged in as <%= current_user()['user_name'] %>
     
@@ -28,7 +28,7 @@
       </form>
     
       <% else %>
-        <a href="" style="padding: 0px 10px 0px 5px; font-size: 16px;">Sign up</a>
+        <a href="/signup" style="padding: 0px 10px 0px 5px; font-size: 18px;">Sign up</a>
         <a href="/login" style="padding: 0px 10px 0px 10px; font-size: 16px;">Login</a>
       <% end %>
   </span>

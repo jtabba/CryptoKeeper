@@ -1,13 +1,14 @@
 
-<h1><%= announcement['title'] %></h1>
+<h1 style="color: goldenrod;"><%= announcement['title'] %></h1>
 
-<img src="<%= announcement['image_url'] %>" alt="">
+<img class="ann_image" src="<%= announcement['image_url'] %>" alt="">
 
-<p><%= announcement['content'] %></p>
+<p class="ann_content" style="height: 425px; width: 600px; margin: 0 auto; padding-top: 50px;"><%= announcement['content'] %></p>
 
 <form action="/get_announcement/<%= announcement['id'] %>" method="post">
     <input type="hidden" name="announcement_id" value="<%= announcement['id'] %>">
     <input type="hidden" name="_method" value="delete">
+    
     <button>Remove</button>
 </form>
 

@@ -1,14 +1,14 @@
-<h1>Crypto Keeper Announcements</h1>
+<h1 style="padding-bottom: 20px; border-bottom: 3px solid goldenrod; font-size: 50px; font-weight: 400;">Crypto Keeper News and Announcements</h1>
 
-<a href="/create_announcement"">Create an announcement</a>
+<a style="font-size: 20px; color: grey;" href="/create_announcement">Create an announcement</a>
 
 <div class="posts">
 <% announcements.each do |announcement| %>
     <div class="post">
     <a href="/get_announcement/<%= announcement['id'] %>">
-        <h2 style="color: goldenrod;">
+        <p class="ann_headings" style="color: goldenrod;">
             <%= announcement['title'] %>
-        </h2>
+        </p>
     </a>
     <img class ="ann_image" src=" <%= announcement['image_url'] %>" alt="">
     </div>

@@ -3,18 +3,24 @@ require 'pg'
 
 require_relative 'lib'
 
-email = 'jtabba@hotmail.com'
-user_name = 'jt'
-password = '123456'
+post '/create_user' do
 
-password_digest = BCrypt::Password.create(password)
+    # email = ''
+    # user_name = ''
+    # password = ''
 
-sql = "INSERT INTO users (email, password_digest) VALUES ($1, $2, $3);"
-run_sql(sql, [
-    email,
-    user_name,
-    password_digest
-])
+    
+    sql = "INSERT INTO users (email, user_name, password_digest) VALUES ($1, $2, $3);"
+    run_sql(sql, [
+        email,
+        user_name,
+        password_digest
+        ])
+
+    password_digest = BCrypt::Password.create(password)
+
+    redirect '/login'
+end
 
 # sql = "INSERT INTO users (email, password_digest) VALUES ($1, $2, $3);"
 # run_sql(sql, [

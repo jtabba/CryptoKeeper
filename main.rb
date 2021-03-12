@@ -1,18 +1,17 @@
      
-# require 'cryptocompare'
 require 'HTTParty'
 require 'sinatra'
 require 'bcrypt'
-
 require_relative 'db/lib'
+
+
+enable :sessions
+
 
 if development?
   require 'sinatra/reloader'
   require 'pry'
 end
-
-
-enable :sessions
 
 
 def logged_in?()
@@ -23,6 +22,7 @@ def logged_in?()
   end 
 end
 
+
 def current_user
   db = PG.connect(dbname: 'cryptokeeper')
   sql = "SELECT * FROM users WHERE id = #{session[:user_id]}"
@@ -32,24 +32,32 @@ def current_user
   return result[0]
 end
 
-# get '/' do
-#   cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD")
 
-#   erb :index, locals: { 
-#     cryptos: cryptos 
-#   }
-# end
+get '/crypto_details' do
+  crypto = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=#{params[:crypto]}&tsyms=USD")
+
+  erb :crypto_details, locals: {
+   from_symbol: crypto['DISPLAY']['USD']['FROMSYMBOL']
+  #  to_symbol: crypto['DISPLAY']['USD']['TOSYMBOL'],
+  #  price: crypto['DISPLAY']['USD']['PRICE'],
+  #  hour: crypto['DISPLAY']['USD']['CHANGEHOUR'],
+  #  day: crypto['DISPLAY']['USD']['CHANGEDAY'],
+  #  low: crypto['DISPLAY']['USD']['LOW24HOUR'],
+  #  high: crypto['DISPLAY']['USD']['HIGH24HOUR'],
+  #  volume: crypto['DISPLAY']['USD']['TOTALVOLUME24HTO'],
+  #  marketcap: crypto['DISPLAY']['USD']['MKTCAP'],
+  #  image: crypto['DISPLAY']['USD']['IMAGEURL']
+  } 
+end
+
 
 get '/' do
   cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD")
-  
   erb :index, locals: { cryptos: cryptos['Data'] } 
 end
 
 
 get '/crypto_details' do
-
-  crypto = 
 
   erb :crypto_details
 end
@@ -108,6 +116,7 @@ get "/get_announcement/:id/edit" do
 
   erb :edit_announcement, locals: { announcement: announcement }
 end
+
 
 patch '/get_announcement/:id' do
   run_sql(

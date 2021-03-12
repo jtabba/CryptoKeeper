@@ -9,16 +9,10 @@ body {
     text-align: center;
     font-size: 14px;
     background-color: #001a33;
-    
 }
-
-/* p {
-    border-left: 0.5px solid black;
-} */
 
 h1 {
     color: white;
-
 }
 
 .variables {
@@ -64,7 +58,6 @@ img {
 a {
     text-decoration: none;
     color: white;
-    
 }
 
 a:visited {
@@ -76,12 +69,6 @@ a:hover {
     /* font-weight: bold; */
     transition: font-weight 2ms linear;
 }
-
-/* span.log_control {
-    text-align: right;
-    display: grid;
-    color: goldenrod;
-} */
 
 div {
     font-weight: bold;
@@ -99,27 +86,44 @@ div.control_bar {
 }
 
 .chart_container {
-    width: 1000px;
-    height: 600px;
+    display: inline-flex;
     margin: 0;
-    padding-left: 200px;
+    padding-top: 100px;
+    gap: 5%;   
 }
 
-options {
-    responsive: true;
-    maintainAspectRatio: false;
+.chart_values {
+    max-height: 200px;
+    color: white;
+    font-size: 18px;
+    font-weight: 200;
 }
 
+.chart_canvas {
+    width: 1000px;
+    height: 800px;
+}
 
 .ann_image {
     padding: 0px;
     display: block;
     margin: auto;
-    width: 340px;
+    width: 700px;
+    padding-bottom: 50px;
+    border-bottom: 2px solid grey;
 }
-/* #chart {
 
-    width:300px !important;
-    height:200px !important;
-  
-  } */
+.ann_content {
+    color: white;
+    margin: 50px;
+    /* box-shadow: 1px 1px 2px white, 0 0 25px grey, 0 0 5px darkblue; */
+}
+
+p.ann_headings:hover {
+    color: white !important;
+}
+
+p.ann_headings {
+    font-size: 30px;
+    font-weight: 200;
+}
