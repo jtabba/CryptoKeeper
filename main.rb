@@ -1,5 +1,5 @@
      
-require 'HTTParty'
+require 'httparty'
 require 'sinatra'
 require 'bcrypt'
 require_relative 'db/lib'
