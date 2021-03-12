@@ -65,7 +65,7 @@ end
 
 get '/announcements' do
 
-  redirect '/login' unless logged_in?
+  # redirect '/login' unless logged_in?
 
   announcements = run_sql("SELECT * FROM announcements;")
 
@@ -113,6 +113,8 @@ end
 
 
 get "/get_announcement/:id/edit" do
+  redirect '/login' unless logged_in?
+  
   announcement = run_sql("SELECT * FROM announcements WHERE id = $1", [params[:id]])[0]
 
   erb :edit_announcement, locals: { announcement: announcement }
@@ -120,6 +122,8 @@ end
 
 
 patch '/get_announcement/:id' do
+  redirect '/login' unless logged_in?
+
   run_sql(
     "UPDATE announcements SET title = $1, image_url = $2, content = $3 WHERE id = $4;", [
     params[:title],
