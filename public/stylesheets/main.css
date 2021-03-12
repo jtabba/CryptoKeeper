@@ -88,8 +88,9 @@ div.control_bar {
 .chart_container {
     display: inline-flex;
     margin: 0;
-    padding-top: 100px;
+    padding-top: 20px;
     gap: 5%;   
+    border-top: 2px solid goldenrod;
 }
 
 .chart_values {
@@ -126,4 +127,8 @@ p.ann_headings:hover {
 p.ann_headings {
     font-size: 30px;
     font-weight: 200;
+}
+
+a.login_signup:hover {
+    color: white !important;
 }

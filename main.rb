@@ -34,10 +34,11 @@ end
 
 
 get '/crypto_details' do
-  crypto = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=#{params[:crypto]}&tsyms=USD")
+  # crypto = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=#{params[:crypto]}&tsyms=USD")
 
-  erb :crypto_details, locals: {
-   from_symbol: crypto['DISPLAY']['USD']['FROMSYMBOL']
+  erb :crypto_details
+  # , locals: {
+  #  from_symbol: crypto['DISPLAY']['USD']['FROMSYMBOL']
   #  to_symbol: crypto['DISPLAY']['USD']['TOSYMBOL'],
   #  price: crypto['DISPLAY']['USD']['PRICE'],
   #  hour: crypto['DISPLAY']['USD']['CHANGEHOUR'],
@@ -47,7 +48,7 @@ get '/crypto_details' do
   #  volume: crypto['DISPLAY']['USD']['TOTALVOLUME24HTO'],
   #  marketcap: crypto['DISPLAY']['USD']['MKTCAP'],
   #  image: crypto['DISPLAY']['USD']['IMAGEURL']
-  } 
+  # } 
 end
 
 
