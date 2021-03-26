@@ -13,7 +13,7 @@ Crypto Keeper uses a CryptoCompare API to display the prices and numerous values
 ![Home Interface](public/documentation/home.jpg)
 
 ## Graphs
-To provide a visual representation of the price fluctuations of an asset over time, Crypto Keeper utilises and displays a line graph to plot the previous 3 month price movements of an asset. The graph is created using the Graph.js and Moment.js libraries, and is coded to render based upon the time and price of an asset at a certain time.
+To provide a visual representation of the price fluctuations of all the top 100 cryptocurrencies, Crypto Keeper utilises and displays a line graph to plot the previous 3 month price movements of an asset. The graph is created using the Graph.js and Moment.js libraries, and is coded to render based upon the time and price of an asset at a certain time.
 
 Additional information regarding more specific attributes of a crypto are also displayed on the left-hand side of the graph, hence providing a deeper insight into the distinct details and features of the token.
 
@@ -58,8 +58,6 @@ A long list of improvements is currently planned for Crypto Keeper:
 - Enable the graph to display different time periods (currently hard coded for 3 months).
 
 # Known Bugs
-- The graph and token information (when a crypto is clicked/navigated to) is only displayed for Bitcoin.
-- User sign up is currently not operational.
 - Graph displays time in epoch time rather than DD/MM/YYYY.
 
 
