@@ -51,8 +51,8 @@ img {
 }
 
 .logo {
-    width: 30%;
-    padding: 0px;
+    width: 340px;
+    padding: 0;
 }
 
 a {
@@ -80,10 +80,13 @@ div {
     color: grey;
 }
 
-div.control_bar {
+/* .control_bar {
+    width: 100%;
+    height: 100%;
+    background-color: #001a33;
     padding: 0px;
     margin: -10px 0px 0px 0px;
-}
+} */
 
 .chart_container {
     display: inline-flex;
@@ -98,11 +101,12 @@ div.control_bar {
     color: white;
     font-size: 18px;
     font-weight: 200;
+    padding: 0 0 0 0;
 }
 
-.chart_canvas {
+div .chart_canvas {
     width: 1000px;
-    height: 800px;
+    height: 500px;
 }
 
 .ann_image {
@@ -132,3 +136,43 @@ p.ann_headings {
 a.login_signup:hover {
     color: white !important;
 }
+
+.login {
+    display: grid;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    padding: 80px 0 40px 0;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(249, 249, 249);
+    border: 2px solid #c6c6c6;
+    border-radius: 5px;
+    /* box-shadow: 0 2px 2px rgb(255, 255, 255); */
+}
+
+.login h4 {
+    color: #001a33; 
+    font-size: 20px; 
+    font-weight: 100;
+    margin: 0 auto;
+}
+
+.login p {
+    color: goldenrod; 
+    font-size: 15px; 
+    font-weight: 200px;
+    text-align: left;
+    margin: 10px 0 2px 40px;
+    /* margin-left: 40px; */
+}
+
+.login-btn:hover {
+    color: white;
+}
+
+.logout-btn:hover {
+    color: white;
+}
+

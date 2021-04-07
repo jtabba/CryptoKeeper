@@ -1,6 +1,22 @@
 <br>
 <img class="logo" src="media/logo.png" alt="">
 
+<%# <form action="">
+    <input class="cryptoSearch" type="text">
+    <button class="cryptoSearchButton">Search</button>
+</form>
+<script>
+    let cryptoSearch = document.querySelector('.cryptoSearch');
+    let cryptoSearchButton = document.querySelector('.cryptoSearchButton');
+
+    cryptoSearchButton.addEventListener('keyup', event => {
+
+        const searchString = event.target.value.toLowerCa
+        axios.get(`/crypto_details?cryptocurrency=${cryptoSearch.value}`)
+    })
+</script> %>
+
+
 <span class="variables">
     <p> </p>
     <p>Rank</p>
@@ -19,7 +35,6 @@
 <% cryptos.each do |crypto|%>
 
 <span class="crypto">
-<%# if data[:second] && data[:second][:more] && data[:second][:more][:final] %>
 
     <% if crypto['DISPLAY'] && crypto['DISPLAY']['USD'] && crypto['DISPLAY']['USD']['IMAGEURL'] %>
         <img src="https://www.cryptocompare.com/<%= crypto['DISPLAY']['USD']['IMAGEURL'] %>" alt="">
@@ -28,7 +43,7 @@
     <p class="index"><%= i %></p>
 
     <% if crypto['CoinInfo'] && crypto['CoinInfo']['FullName'] && crypto['CoinInfo']['Name'] %>
-        <a class="details_link" href="/crypto_details">
+        <a class="details_link" href="/crypto_details?cryptocurrency=<%= crypto['CoinInfo']['Name'] %>"</a>
             <p><%= crypto['CoinInfo']['FullName'] %> (<%= crypto['CoinInfo']['Name'] %>)</p>
         </a>
     <% end %>
@@ -67,8 +82,8 @@
         <% end %>
     <% end %>
 
-    <% if crypto['RAW'] && crypto['RAW']['USD'] && crypto['RAW']['USD']['CHANGE24HOUR'] %>    
-        <% daily_change = (100 - crypto['RAW']['USD']['PRICE'] / crypto['RAW']['USD']['OPEN24HOUR'] * 100).round(2) %>
+    <% if crypto['RAW'] && crypto['RAW']['USD'] && crypto['RAW']['USD']['CHANGEPCT24HOUR'] %>    
+        <% daily_change = ((crypto['RAW']['USD']['PRICE'] / crypto['RAW']['USD']['OPEN24HOUR'] * 100).round(2) - 100).round(2) %>
         <% if daily_change > 0.01 %>
             <p class="percentage" style="color: #14e715;"><%= daily_change %> %</p>
         <% elsif daily_change < 0 %>

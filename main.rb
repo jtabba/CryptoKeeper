@@ -32,25 +32,16 @@ def current_user
   return result[0]
 end
 
+# def is_admin? 
+#   db = PG.connect(dbname: 'cryptokeeper')
+#   admin = "SELECT isadmin FROM users;"
 
-get '/crypto_details' do
-  # crypto = HTTParty.get("https://min-api.cryptocompare.com/data/price?fsym=#{params[:crypto]}&tsyms=USD")
+#   result = db.exec(admin)
 
-  erb :crypto_details
-  # , locals: {
-  #  from_symbol: crypto['DISPLAY']['USD']['FROMSYMBOL']
-  #  to_symbol: crypto['DISPLAY']['USD']['TOSYMBOL'],
-  #  price: crypto['DISPLAY']['USD']['PRICE'],
-  #  hour: crypto['DISPLAY']['USD']['CHANGEHOUR'],
-  #  day: crypto['DISPLAY']['USD']['CHANGEDAY'],
-  #  low: crypto['DISPLAY']['USD']['LOW24HOUR'],
-  #  high: crypto['DISPLAY']['USD']['HIGH24HOUR'],
-  #  volume: crypto['DISPLAY']['USD']['TOTALVOLUME24HTO'],
-  #  marketcap: crypto['DISPLAY']['USD']['MKTCAP'],
-  #  image: crypto['DISPLAY']['USD']['IMAGEURL']
-  # } 
-end
-
+#   if admin === 't'
+#     return true
+#   end
+# end
 
 get '/' do
   cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD")
@@ -59,9 +50,22 @@ end
 
 
 get '/crypto_details' do
-
-  erb :crypto_details
+  crypto = HTTParty.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=#{params[:cryptocurrency]}&tsyms=USD")
+  
+  erb :crypto_details, locals: {
+    image: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['IMAGEURL'],
+    from_symbol: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['FROMSYMBOL'],
+    change_percent: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['CHANGEPCT24HOUR'],
+    price: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['PRICE'],
+    hour: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['CHANGEHOUR'],
+    change_day: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['CHANGEDAY'],
+    low: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['LOW24HOUR'],
+    high: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['HIGH24HOUR'],
+    current_price: crypto['RAW']["#{params[:cryptocurrency]}"]['USD']['PRICE'],
+    marketcap: crypto['DISPLAY']["#{params[:cryptocurrency]}"]['USD']['MKTCAP'],
+  } 
 end
+
 
 get '/announcements' do
 
@@ -138,6 +142,20 @@ end
 
 get '/signup' do
   erb :signup
+end
+
+
+post '/create_user' do
+  password_digest = BCrypt::Password.create(params[:password_digest] )
+  
+  sql = "INSERT INTO users (email, user_name, password_digest) VALUES ($1, $2, $3);"
+  run_sql(sql, [
+      params[:email],
+      params[:user_name],
+      password_digest
+      ])
+
+  redirect '/login'
 end
 
 
