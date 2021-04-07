@@ -10,7 +10,7 @@ https://stormy-harbor-84296.herokuapp.com/
 ## Prices and Values
 Crypto Keeper uses a CryptoCompare API to display the prices and numerous values of cryptocurrencies. Changes in price over the course of an hour and a day are also tracked and highlighted in either green or red to indicate whether the movement was positive or negative. To supplement this, the change in % of a price over the course of a day is also displayed to provide an additional layer of information about the asset.
 
-![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/public/documentation/home.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/home.jpg)
 
 ## Graphs
 To provide a visual representation of the price fluctuations of all the top 100 cryptocurrencies, Crypto Keeper utilises and displays a line graph to plot the previous 3 month price movements of an asset. The graph is created using the Graph.js and Moment.js libraries, and is coded to render based upon the time and price of an asset at a certain time.
