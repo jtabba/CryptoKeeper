@@ -23,7 +23,7 @@ Additional information regarding more specific attributes of a crypto are also d
 
 Crypto Keeper boasts a section dedicated to sharing the latest crypto related news. To access this section of the website, viewers must sign up and login to their Crypto Keeper account.
 
-![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/news.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/news.png)
 
 Signing up and logging in will then highlight and display the users username at the top of the page - everyone likes to feel a little special sometimes.
 
@@ -31,14 +31,14 @@ Signing up and logging in will then highlight and display the users username at 
 
 ![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/signup.png)
 
-![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/loggedin.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/loggedin.png)
 
 Full CRUD functionality is incorporated for all posts, allowing the website admin to create, share, edit and delete anything that is posted on the page.
 
 
 Clicking on a news headline navigates the user to a new page where the article content is displayed for reading.
 
-![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/article.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/article.png)
 
 ## Security
 
@@ -60,6 +60,6 @@ A long list of improvements is currently planned for Crypto Keeper:
 - Display more information about a token when a user navigates to it.
 - Enable the graph to display different time periods (currently hard coded for 3 months).
 
-
-
-
+# Upcoming features
+- Alter time span of graph data (year, 3 months, month, day)
+- Create forum
