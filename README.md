@@ -60,8 +60,6 @@ A long list of improvements is currently planned for Crypto Keeper:
 - Display more information about a token when a user navigates to it.
 - Enable the graph to display different time periods (currently hard coded for 3 months).
 
-# Known Bugs
-- Graph displays time in epoch time rather than DD/MM/YYYY.
 
 
 
