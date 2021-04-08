@@ -17,25 +17,28 @@ To provide a visual representation of the price fluctuations of all the top 100 
 
 Additional information regarding more specific attributes of a crypto are also displayed on the left-hand side of the graph, hence providing a deeper insight into the distinct details and features of the token.
 
-![Home Interface](public/documentation/graph.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/graph.png)
 
 ## Crypto News
 
 Crypto Keeper boasts a section dedicated to sharing the latest crypto related news. To access this section of the website, viewers must sign up and login to their Crypto Keeper account.
 
-![Home Interface](public/documentation/news.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/news.jpg)
 
 Signing up and logging in will then highlight and display the users username at the top of the page - everyone likes to feel a little special sometimes.
 
-![Home Interface](public/documentation/loggedin.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/login.png)
+
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/signup.png)
+
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/loggedin.jpg)
 
 Full CRUD functionality is incorporated for all posts, allowing the website admin to create, share, edit and delete anything that is posted on the page.
 
-![Home Interface](public/documentation/login.jpg)
 
 Clicking on a news headline navigates the user to a new page where the article content is displayed for reading.
 
-![Home Interface](public/documentation/article.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/article.jpg)
 
 ## Security
 
