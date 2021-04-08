@@ -23,7 +23,7 @@ Additional information regarding more specific attributes of a crypto are also d
 
 Crypto Keeper boasts a section dedicated to sharing the latest crypto related news. To access this section of the website, viewers must sign up and login to their Crypto Keeper account.
 
-![Home Interface](public/documentation/news.jpg)
+![Home Interface](https://github.com/jtabba/CryptoKeeper/blob/main/public/documentation/news.jpg)
 
 Signing up and logging in will then highlight and display the users username at the top of the page - everyone likes to feel a little special sometimes.
 
