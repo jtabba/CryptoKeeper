@@ -32,16 +32,15 @@ def current_user
   return result[0]
 end
 
-# def is_admin? 
+# def is_admin?
 #   db = PG.connect(dbname: 'cryptokeeper')
-#   admin = "SELECT isadmin FROM users;"
+#   admin = "SELECT isadmin FROM users where id = #{session[:user_id]};"
 
 #   result = db.exec(admin)
 
-#   if admin === 't'
-#     return true
-#   end
+#   return result[0]
 # end
+# binding.pry
 
 get '/' do
   cryptos = HTTParty.get("https://min-api.cryptocompare.com/data/top/mktcapfull?limit=100&tsym=USD")

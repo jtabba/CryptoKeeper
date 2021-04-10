@@ -1,6 +1,10 @@
 <h1 style="padding-bottom: 20px; border-bottom: 3px solid goldenrod; font-size: 50px; font-weight: 400;">Crypto Keeper News and Announcements</h1>
 
-<a style="font-size: 20px; color: grey;" href="/create_announcement">Create an announcement</a>
+<% if logged_in? %>
+    <% if current_user()['id'] == '2' %>% 
+        <a style="font-size: 20px; color: grey;" href="/create_announcement">Create an announcement</a>
+    <% end %> 
+<% end %>
 
 <div class="posts">
 <% announcements.each do |announcement| %>
