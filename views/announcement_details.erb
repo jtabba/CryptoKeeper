@@ -5,13 +5,17 @@
 
 <p class="ann_content" style="height: 425px; width: 600px; margin: 0 auto; padding-top: 50px;"><%= announcement['content'] %></p>
 
-<form action="/get_announcement/<%= announcement['id'] %>" method="post">
-    <input type="hidden" name="announcement_id" value="<%= announcement['id'] %>">
-    <input type="hidden" name="_method" value="delete">
-    
-    <button>Remove</button>
-</form>
 
-
-<a href="/get_announcement/<%= announcement['id'] %>/edit">Edit</a>
+<% if logged_in? %>
+    <% if current_user()['id'] == '2' %>% 
+    <form action="/get_announcement/<%= announcement['id'] %>" method="post">
+        <input type="hidden" name="announcement_id" value="<%= announcement['id'] %>">
+        <input type="hidden" name="_method" value="delete">
+        
+        <button>Remove</button>
+    </form>
+        
+    <a href="/get_announcement/<%= announcement['id'] %>/edit">Edit</a>
+    <% end %> 
+<% end %>
 
